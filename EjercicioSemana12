@@ -1,0 +1,38 @@
+fun main() {
+    println("TDD")
+    // Llamar a los test
+    if (validarMayoríaDeEdadTest()) println("REJECTED") else println("ACCEPTED")
+    if (validarEdadNegativaTest()) println("REJECTED") else println("ACCEPTED")
+    if (validarMenorDeEdadTest()) println("REJECTED") else println("ACCEPTED")
+}
+
+
+fun validarMayoríaDeEdad(edad: Int): String {
+     //Paso 2. Hacer que la prueba pase
+    if (edad < 19) {
+        return "REJECTED"
+    }
+    return if (edad >= 18) "ACCEPTED" else "REJECTED"
+}
+
+
+// Paso 1. escribir prueba que falle
+fun validarMayoríaDeEdadTest(): Boolean {
+    val actualValue = validarMayoríaDeEdad(18)
+    val expectedValue = "ACCEPTED"
+    return actualValue == expectedValue
+}
+
+fun validarEdadNegativaTest(): Boolean {
+    val actualValue = validarMayoríaDeEdad(-1)
+    val expectedValue = "REJECTED"
+    return actualValue == expectedValue
+}
+
+fun validarMenorDeEdadTest(): Boolean {
+    val actualValue = validarMayoríaDeEdad(17)
+    val expectedValue = "REJECTED"
+    return actualValue == expectedValue
+}
+
+
